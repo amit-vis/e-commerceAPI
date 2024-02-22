@@ -49,7 +49,9 @@ module.exports.createProduct = async (req, res)=>{
 
 module.exports.details = async (req, res)=>{
     try {
-        const findProduct = await Product.findById(req.params.id);
+        const findProduct = await Product.findById(req.params.id)
+        .populate('category', 'category')
+        .exec();
         if(findProduct){
             return res.status(200).json({
                 message: "Product Details",
