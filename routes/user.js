@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controller/userController');
+const limitter = require('../config/limitter');
+
+router.use(limitter)
 
 router.post('/create', userController.create);
-router.post('/create-session', userController.createSession);
+router.post('/signin', userController.createSession);
 
 module.exports = router;

@@ -1,6 +1,29 @@
 const Category = require('../model/category');
-const Product = require('../model/product')
+const Product = require('../model/product');
 
+/**
+ * @swagger
+ * tags:
+ *  name: Category
+ *  description: operation related to Category add and get
+ */
+
+/**
+ * @swagger
+ * /category/view:
+ *   get:
+ *     summary: List of categories
+ *     description: Operation related to fetch the list of categories
+ *     responses:
+ *       200:
+ *         description: Success, lists of categories are showing
+ *       400:
+ *         description: Category list not found
+ *       500:
+ *         description: Internal Server error finding the category list
+ *     tags:
+ *       - Category
+ */
 module.exports.view = async (req,res)=>{
     try {
         const categoryList = await Category.find({});
@@ -25,6 +48,27 @@ module.exports.view = async (req,res)=>{
     }
 }
 
+/**
+ * @swagger
+ * /category/add:
+ *   post:
+ *     summary: Add the category
+ *     description: Operation related to add the categories
+ *     parameters:
+ *       - name: category
+ *         in: body
+ *         description: Category object to be added
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/Category'
+ *     responses:
+ *       200:
+ *         description: Category created successfully or category already exists
+ *       500:
+ *         description: Internal server error adding the categories
+ *     tags:
+ *       - Category
+ */
 module.exports.createCategory = async (req, res)=>{
     try {
         const category = await Category.findOne({category: req.body.category});
@@ -53,6 +97,28 @@ module.exports.createCategory = async (req, res)=>{
     }
 },
 
+/**
+ * @swagger
+ * /category/productcate/{id}:
+ *   get:
+ *     summary: Product with category
+ *     description: Fetch the product details that come with the category
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the category
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: All product list by category
+ *       400:
+ *         description: Product not found or no product in this category
+ *       500:
+ *         description: Internal Server error getting the product details
+ *     tags:
+ *       - Category
+ */
 module.exports.categoryWise = async (req, res)=>{
     try {
         const categoryId = await Category.findById(req.params.id);

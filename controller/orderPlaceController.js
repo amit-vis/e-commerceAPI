@@ -1,6 +1,35 @@
 const Order = require('../model/orderplace');
 const Cart = require('../model/cart');
 
+/**
+ * @swagger
+ * tags:
+ *  name: Order
+ *  description: All the operation Order placement
+ */
+
+/**
+ * @swagger
+ * /order/place/{id}:
+ *   post:
+ *     summary: Place the order
+ *     description: Place the order from the cart
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the cart to place the order
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Order placed successfully or Order already placed
+ *       500:
+ *         description: Internal Server Error in Placing the order
+ *     security:
+ *       - jwt: []
+ *     tags:
+ *      - Order
+ */
 module.exports.placeOrder = async (req, res)=>{
     try {
         const cart = await Cart.findById(req.params.id);
@@ -17,9 +46,9 @@ module.exports.placeOrder = async (req, res)=>{
                 }
             }
         });
-        if(order){
+        if(order || cart._id){
             return res.status(200).json({
-                message: "Item already exist",
+                message: "Order already Placed",
                 success: true,
                 order
             })
@@ -40,6 +69,23 @@ module.exports.placeOrder = async (req, res)=>{
         })
     }
 }
+
+/**
+ * @swagger
+ * /order/history:
+ *   get:
+ *     summary: Placed order history
+ *     description: History of all the placed orders
+ *     responses:
+ *       200:
+ *         description: List of all the past orders
+ *       500:
+ *         description: Internal Server Error Getting the order History list
+ *     security:
+ *       - jwt: []
+ *     tags:
+ *      - Order
+ */
 
 module.exports.orderHistory = async (req, res)=>{
     try {
@@ -70,6 +116,30 @@ module.exports.orderHistory = async (req, res)=>{
     }
 }
 
+/**
+ * @swagger
+ * /order/details/{id}:
+ *   get:
+ *     summary: Order details
+ *     description: Fetch the order details by the order ID
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the order
+ *         required: true
+ *         type: string
+ *     responses:
+ *       400:
+ *          description: Order does not exist or not found
+ *       200:
+ *         description: Success, order details successfully
+ *       500:
+ *         description: Internal Server Error Getting the order details
+ *     security:
+ *       - jwt: []
+ *     tags:
+ *      - Order
+ */
 module.exports.orderDetails = async (req, res)=>{
     try {
         const findOrder = await Order.findById(req.params.id)

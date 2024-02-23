@@ -1,4 +1,28 @@
 const mongoose = require('mongoose');
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Product:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: The unique identifier for the product.
+ *         title:
+ *           type: string
+ *           description: The title of the product.
+ *         price:
+ *           type: number
+ *           description: The price of the product.
+ *         description:
+ *           type: string
+ *           description: The description of the product.
+ *         availability:
+ *           type: boolean
+ *           description: The availability status of the product.
+ */
+
 const productSchema = mongoose.Schema({
     title:{
         type: String,

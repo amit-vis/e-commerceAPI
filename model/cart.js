@@ -1,5 +1,31 @@
 const mongoose = require('mongoose');
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Cart:
+ *       type: object
+ *       required:
+ *         - product
+ *         - quantity
+ *         - totalPrice
+ *       properties:
+ *         product:
+ *           type: string
+ *           description: The ID of the associated product.
+ *         quantity:
+ *           type: number
+ *           description: The quantity of the product in the cart.
+ *         totalPrice:
+ *           type: number
+ *           description: The total price for the quantity of the product.
+ *       example:
+ *         product: 609c4349e9a6b5256020e9b1
+ *         quantity: 2
+ *         totalPrice: 30.99
+ */
+
 const cartSchema = mongoose.Schema({
     product:{
         type: mongoose.Schema.Types.ObjectId,
