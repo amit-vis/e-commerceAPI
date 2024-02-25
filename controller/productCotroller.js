@@ -26,7 +26,8 @@ const Product = require('../model/product');
 // get the all product list
 module.exports.getProduct = async (req, res)=>{
     try {
-        const ProductList = await Product.find({});
+        const ProductList = await Product.find({})
+        .populate('category', 'category');
         if(ProductList){
             return res.status(200).json({
                 message: "List of the product",
@@ -131,7 +132,7 @@ module.exports.createProduct = async (req, res)=>{
 module.exports.updateStock = async (req, res)=>{
     try {
         const product = await Product.findById(req.params.id)
-        .populate('category');
+        .populate('category', 'category');
 
         if(product){
             product.availability = !product.availability;
