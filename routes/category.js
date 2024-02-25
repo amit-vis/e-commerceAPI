@@ -7,6 +7,6 @@ router.use(limitter)
 
 router.get('/view', categoryCotroller.view);
 router.post('/add', categoryCotroller.createCategory);
-router.get('/productcate/:id', categoryCotroller.categoryWise);
+router.get('/category-wise/:id', categoryCotroller.categoryWise);
 
 module.exports = router;
