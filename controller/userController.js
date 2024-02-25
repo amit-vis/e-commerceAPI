@@ -31,6 +31,7 @@ const secure = require('../config/secure');
  *      - User
  */
 
+// code register new user
 module.exports.create = async (req, res)=>{
     try {
         const user = await User.findOne({email: req.body.email});
@@ -89,6 +90,7 @@ module.exports.create = async (req, res)=>{
  *      - User
  */
 
+// code for login the user and generate the token
 module.exports.createSession = async (req, res)=>{
     try {
         const user = await User.findOne({email: req.body.email});

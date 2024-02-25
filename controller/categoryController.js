@@ -24,6 +24,8 @@ const Product = require('../model/product');
  *     tags:
  *       - Category
  */
+
+// check the list of the category
 module.exports.view = async (req,res)=>{
     try {
         const categoryList = await Category.find({});
@@ -69,6 +71,8 @@ module.exports.view = async (req,res)=>{
  *     tags:
  *       - Category
  */
+
+// here code for create the category
 module.exports.createCategory = async (req, res)=>{
     try {
         const category = await Category.findOne({category: req.body.category});
@@ -119,6 +123,8 @@ module.exports.createCategory = async (req, res)=>{
  *     tags:
  *       - Category
  */
+
+// here get the products categorywise
 module.exports.categoryWise = async (req, res)=>{
     try {
         const categoryId = await Category.findById(req.params.id);

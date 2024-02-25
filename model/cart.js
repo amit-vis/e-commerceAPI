@@ -26,6 +26,7 @@ const mongoose = require('mongoose');
  *         totalPrice: 30.99
  */
 
+// here is the cart schema
 const cartSchema = mongoose.Schema({
     product:{
         type: mongoose.Schema.Types.ObjectId,

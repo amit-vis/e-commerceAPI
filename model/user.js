@@ -27,6 +27,7 @@ const mongoose = require('mongoose');
  *         password: securepassword
  */
 
+// user schema
 const userSchema = mongoose.Schema({
     name:{
         type: String,

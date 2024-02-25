@@ -4,10 +4,13 @@ const cartController = require('../controller/cartController');
 const passport = require('passport');
 const limitter = require('../config/limitter');
 
+// set the limmiter
 router.use(limitter)
+
+// given the route and what operation need to be performed
 router.post('/add/:id',passport.authenticate('jwt', {session: false}),cartController.addCart);
-router.get('/viewcart',passport.authenticate('jwt', {session: false}),cartController.viewCart);
-router.put('/updatequantity/:id',passport.authenticate('jwt', {session: false}) ,cartController.updateQuntity);
-router.delete('/deleteitem/:id',passport.authenticate('jwt', {session: false}) ,cartController.deleteItem);
+router.get('/view-cart',passport.authenticate('jwt', {session: false}),cartController.viewCart);
+router.put('/update-quantity/:id',passport.authenticate('jwt', {session: false}) ,cartController.updateQuntity);
+router.delete('/delete-item/:id',passport.authenticate('jwt', {session: false}) ,cartController.deleteItem);
 
 module.exports = router

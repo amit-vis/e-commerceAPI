@@ -1,4 +1,8 @@
-const ratelimit = require('express-rate-limit')
+// implited the limitter to prevent server stability
+
+const ratelimit = require('express-rate-limit');
+
+// here we have set out limitter
 const limitter= ratelimit({
     windowMs: 100*60*1000,
     limit: 1000,

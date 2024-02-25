@@ -22,6 +22,8 @@ const Product = require('../model/product');
  *     tags:
  *      - Product
  */
+
+// get the all product list
 module.exports.getProduct = async (req, res)=>{
     try {
         const ProductList = await Product.find({});
@@ -66,6 +68,7 @@ module.exports.getProduct = async (req, res)=>{
  *       - Product
  */
 
+// create new product by using category id
 module.exports.createProduct = async (req, res)=>{
     try {
         const product = await Product.findOne({title: req.body.title});
@@ -124,6 +127,7 @@ module.exports.createProduct = async (req, res)=>{
  *       - Product
  */
 
+// code for update stock of the product by using product id
 module.exports.updateStock = async (req, res)=>{
     try {
         const product = await Product.findById(req.params.id)
@@ -176,7 +180,7 @@ module.exports.updateStock = async (req, res)=>{
  *      - Product
  */
 
-
+// check the product details by using product id
 module.exports.details = async (req, res)=>{
     try {
         const findProduct = await Product.findById(req.params.id)

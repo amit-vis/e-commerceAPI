@@ -23,6 +23,7 @@ const mongoose = require('mongoose');
  *           description: The availability status of the product.
  */
 
+// product schema
 const productSchema = mongoose.Schema({
     title:{
         type: String,

@@ -16,6 +16,7 @@ const mongoose = require('mongoose');
  *         category: Electronics
  */
 
+// category schema
 const categorySchema = mongoose.Schema({
     category:{
         type: String,

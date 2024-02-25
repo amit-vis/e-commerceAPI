@@ -1,6 +1,6 @@
 const swaggerDoc = require('swagger-jsdoc');
 
-
+// here we have setup our options for swagger documents
 const options = {
     definition:{
         openapi: '3.0.0',
@@ -14,6 +14,8 @@ const options = {
             }
         ]
     },
+
+    // we have given apis to document each and every operation
     apis: ['./model/product.js',
             './model/user.js',
             './model/orderplace.js',

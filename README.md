@@ -22,4 +22,57 @@ To run tests, run the following command
     1. get the all the category list: [get]: /category/view
     2. create the category: [post]: /category/add
     3. get the product list category wise : [get]: /category/category-wise/:id
-   
+
+### product routes
+    1. fetch all the products list: [get]: /product/list
+    2. add new product: [post]: /product/create
+    3. get the product details by product id: [get]: /product/details/:id
+    4. change the product stocks or availability: [put]: /product//update-stock/:id'
+
+### user routes
+    1. register the user: [post]: /user/create
+    2. signin the user: [post]: /user/signin
+
+### cart routes
+    1. add the item into cart: [post]: /cart/add/:id
+    2. get the item list which is available in the cart: [get]: /cart/view-cart
+    3. update the quantity of the cart: [put]: /cart/update-quantity/:id
+    4. delete the item from the cart: [delete]: /cart/delete-item/:id
+
+### order routes
+    1. place the order from the cart: [post]: /order/place/:id
+    2. check the orders history: [get]: /order/history
+    3. check the order details by order id: /order/details/:id
+
+## Folder Structure
+* config
+    - limitter.js
+    - mongoose.js
+    - passport-jwt.js
+    - secure.js
+    - swagger.js
+* controllers
+    - cartCotroller.js
+    - categoryController.js
+    - homeController.js
+    - orderPlaceController.js
+    - productController.js
+    - userController.js
+* models
+    - cart.js
+    - category.js
+    - orderplace.js
+    - product.js
+    - user.js
+* routes
+    - cart.js
+    - category.js
+    - index.js
+    - order.js
+    - product.js
+    - user.js
+- index.js
+- .gitignore
+- index.js
+- package-lock.json
+- package.json

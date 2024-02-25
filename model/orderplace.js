@@ -26,6 +26,7 @@ const mongoose = require('mongoose');
  *         status: "Pending"
  */
 
+// order schema
 const orderSchema = mongoose.Schema({
     cart:{
         type: mongoose.Schema.Types.ObjectId,

@@ -30,6 +30,8 @@ const Cart = require('../model/cart');
  *     tags:
  *      - Order
  */
+
+// here place the by cart id
 module.exports.placeOrder = async (req, res)=>{
     try {
         const cart = await Cart.findById(req.params.id);
@@ -87,6 +89,7 @@ module.exports.placeOrder = async (req, res)=>{
  *      - Order
  */
 
+// check the order history
 module.exports.orderHistory = async (req, res)=>{
     try {
         const order = await Order.find({})
@@ -140,6 +143,8 @@ module.exports.orderHistory = async (req, res)=>{
  *     tags:
  *      - Order
  */
+
+// check the order details by the order id
 module.exports.orderDetails = async (req, res)=>{
     try {
         const findOrder = await Order.findById(req.params.id)

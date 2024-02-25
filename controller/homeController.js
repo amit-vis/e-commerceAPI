@@ -18,6 +18,8 @@
  *      tags:
  *      - Home
  */
+
+// check our server working our not
 module.exports.home = async (req, res)=>{
     try {
         return res.status(200).json({

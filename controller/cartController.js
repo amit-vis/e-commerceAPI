@@ -33,6 +33,7 @@ const Product = require('../model/product');
  *       - Cart
  */
 
+// code for add the product into cart
 module.exports.addCart = async (req, res)=>{
     try {
         const product = await Product.findById(req.params.id)
@@ -77,7 +78,7 @@ module.exports.addCart = async (req, res)=>{
 
 /**
  * @swagger
- * /cart/viewcart:
+ * /cart/view-cart:
  *   get:
  *     summary: view cart Item
  *     description: List of all the Item which are presents in the cart
@@ -92,6 +93,7 @@ module.exports.addCart = async (req, res)=>{
  *       - Cart
  */
 
+// code for get the list of the cart items
 module.exports.viewCart = async (req, res)=>{
     try {
         const cart = await Cart.find({})
@@ -118,7 +120,7 @@ module.exports.viewCart = async (req, res)=>{
 
 /**
  * @swagger
- * /cart/updatequantity/{id}:
+ * /cart/update-quantity/{id}:
  *   put:
  *     summary: update cart item quantity
  *     description: update the quantity as well show the price according to quantity
@@ -151,6 +153,7 @@ module.exports.viewCart = async (req, res)=>{
  *       - Cart
  */
 
+// here is the code for update the quantity
 module.exports.updateQuntity = async (req, res)=>{
     try {
         const cartId = await Cart.findById(req.params.id)
@@ -191,7 +194,7 @@ module.exports.updateQuntity = async (req, res)=>{
 
 /**
  * @swagger
- * /cart/deleteitem/{id}:
+ * /cart/delete-item/{id}:
  *   delete:
  *     summary: Delete Item
  *     description: Operation to delete an item from the cart
@@ -214,6 +217,7 @@ module.exports.updateQuntity = async (req, res)=>{
  *       - Cart
  */
 
+// here is the code for delete the item from the cart
 module.exports.deleteItem = async (req, res)=>{
     try {
         const findItem = await Cart.findById(req.params.id);
