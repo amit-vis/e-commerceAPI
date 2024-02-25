@@ -99,7 +99,7 @@ module.exports.createCategory = async (req, res)=>{
             error
         })
     }
-},
+}
 
 /**
  * @swagger
